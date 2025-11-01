@@ -1,9 +1,10 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
-@import 'libs/vendor';
-@import 'libs/breakpoints';
-@import 'libs/html-grid';
+@use "sass:meta";
+@use 'libs/vars';
+@use 'libs/functions';
+@use 'libs/mixins';
+@use 'libs/vendor';
+@use 'libs/breakpoints';
+@use 'libs/html-grid';
 @import 'fontawesome-all.min.css';
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,700,300i,600i,700i|Raleway:600,800');
 
@@ -15,7 +16,7 @@
 
 // Breakpoints.
 
-	@include breakpoints((
+	@include breakpoints.breakpoints((
 		default:   (1681px,   null     ),
 		xlarge:    (1281px,   1920px   ),
 		large:     (1153px,   1280px   ),
@@ -27,26 +28,26 @@
 
 // Base.
 
-	@import 'base/reset';
-	@import 'base/page';
-	@import 'base/typography';
+	@include meta.load-css('base/reset');
+	@include meta.load-css('base/page');
+	@include meta.load-css('base/typography');
 
 // Component.
 
-	@import 'components/row';
-	@import 'components/box';
-	@import 'components/button';
-	@import 'components/form';
-	@import 'components/icon';
-	@import 'components/image';
-	@import 'components/list';
-	@import 'components/actions';
-	@import 'components/icons';
-	@import 'components/table';
-	@import 'components/arrow';
-	@import 'components/gallery';
-	@import 'components/feature-icons';
+	@include meta.load-css('components/row');
+	@include meta.load-css('components/box');
+	@include meta.load-css('components/button');
+	@include meta.load-css('components/form');
+	@include meta.load-css('components/icon');
+	@include meta.load-css('components/image');
+	@include meta.load-css('components/list');
+	@include meta.load-css('components/actions');
+	@include meta.load-css('components/icons');
+	@include meta.load-css('components/table');
+	@include meta.load-css('components/arrow');
+	@include meta.load-css('components/gallery');
+	@include meta.load-css('components/feature-icons');
 
 // Layout.
 
-	@import 'layout/wrapper';
+	@include meta.load-css('layout/wrapper');

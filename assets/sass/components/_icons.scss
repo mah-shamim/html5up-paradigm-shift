@@ -1,3 +1,6 @@
+@use "../libs/functions";
+@use "../libs/vendor";
+
 ///
 /// Paradigm Shift by HTML5 UP
 /// html5up.net | @ajlkn
@@ -19,7 +22,7 @@
 			}
 
 			.icon {
-				@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
+				@include vendor.vendor('transition', 'background-color #{functions.duration(transition)} ease-in-out');
 				width: 2.25rem;
 				height: 2.25rem;
 				text-align: center;
@@ -32,7 +35,7 @@
 				}
 
 				&:hover {
-					background-color: _palette(border-bg);
+					background-color: functions.palette(border-bg);
 				}
 			}
 		}
