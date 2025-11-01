@@ -48,7 +48,7 @@
 		border:					rgba(144,144,144,0.25),
 		border-bg:				rgba(144,144,144,0.1),
 		accent:					#49fcd4,
-		accent-border:			color.adjust(color.adjust(#49fcd4, $lightness: -8), $saturation: -30),
-		accent-alt:				color.adjust(color.adjust(#49fcd4, $lightness: -10), $saturation: -20),
+		accent-border:			color.adjust(color.adjust(#49fcd4, $lightness: -8%), $saturation: -30%),
+		accent-alt:				color.adjust(color.adjust(#49fcd4, $lightness: -10%), $saturation: -20%),
 		accent-bg:				color.adjust(#49fcd4, $alpha: -0.75)
 	);

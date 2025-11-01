@@ -92,11 +92,11 @@
 			color: functions.palette(fg-bold) !important;
 
 			&:hover {
-				background-color: color.adjust(color.adjust(functions.palette(accent), $lightness: 15), $saturation: 10);
+				background-color: color.adjust(color.adjust(functions.palette(accent), $lightness: 15%), $saturation: 10%);
 			}
 
 			&:active {
-				background-color: color.adjust(color.adjust(functions.palette(accent), $lightness: -3), $saturation: -10);
+				background-color: color.adjust(color.adjust(functions.palette(accent), $lightness: -3%), $saturation: -10%);
 			}
 		}
 
