@@ -1,3 +1,7 @@
+@use "../libs/breakpoints";
+@use "../libs/functions";
+@use "../libs/vendor";
+
 ///
 /// Paradigm Shift by HTML5 UP
 /// html5up.net | @ajlkn
@@ -9,41 +13,41 @@
 	html {
 		font-size: 18pt;
 
-		@include breakpoint('<=xlarge') {
+		@include breakpoints.breakpoint('<=xlarge') {
 			font-size: 13pt;
 		}
 
-		@include breakpoint('<=medium') {
+		@include breakpoints.breakpoint('<=medium') {
 			font-size: 14pt;
 		}
 
-		@include breakpoint('<=small') {
+		@include breakpoints.breakpoint('<=small') {
 			font-size: 12pt;
 		}
 
-		@include breakpoint('<=xsmall') {
+		@include breakpoints.breakpoint('<=xsmall') {
 			font-size: 11pt;
 		}
 	}
 
 	body {
-		background-color: _palette(bg);
-		color: _palette(fg);
+		background-color: functions.palette(bg);
+		color: functions.palette(fg);
 	}
 
 	body, input, select, textarea {
-		color: _palette(fg-bold);
-		font-family: _font(family);
+		color: functions.palette(fg-bold);
+		font-family: functions.font(family);
 		font-size: 1rem;
-		font-weight: _font(weight);
-		letter-spacing: _font(kerning);
+		font-weight: functions.font(weight);
+		letter-spacing: functions.font(kerning);
 		line-height: 2;
 	}
 
 	a {
-		@include vendor('transition', 'border-bottom-color #{_duration(transition)} ease-in-out');
+		@include vendor.vendor('transition', 'border-bottom-color #{functions.duration(transition)} ease-in-out');
 		text-decoration: none;
-		color: _palette(fg-bold);
+		color: functions.palette(fg-bold);
 		border-bottom: dotted 1px;
 
 		&:hover {
@@ -53,8 +57,8 @@
 	}
 
 	strong, b {
-		font-weight: _font(weight-bold);
-		color: _palette(fg-bold);
+		font-weight: functions.font(weight-bold);
+		color: functions.palette(fg-bold);
 	}
 
 	em, i {
@@ -62,16 +66,16 @@
 	}
 
 	p {
-		margin: 0 0 _size(element-margin) 0;
+		margin: 0 0 functions.size(element-margin) 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: _palette(fg-bold);
-		font-family: _font(family-heading);
-		font-weight: _font(weight-heading-light);
-		letter-spacing: _font(kerning-heading);
+		color: functions.palette(fg-bold);
+		font-family: functions.font(family-heading);
+		font-weight: functions.font(weight-heading-light);
+		letter-spacing: functions.font(kerning-heading);
 		line-height: 1.75;
-		margin: 0 0 (_size(element-margin) * 0.75) 0;
+		margin: 0 0 (functions.size(element-margin) * 0.75) 0;
 		text-transform: uppercase;
 
 		a {
@@ -81,19 +85,19 @@
 	}
 
 	h1 {
-		font-family: _font(family);
+		font-family: functions.font(family);
 		font-size: 5rem;
-		font-weight: _font(weight-extrabold);
-		letter-spacing: _font(kerning-heading-alt);
+		font-weight: functions.font(weight-extrabold);
+		letter-spacing: functions.font(kerning-heading-alt);
 		line-height: 1.1;
-		margin: 0 0 (_size(element-margin) * 0.75) 0;
+		margin: 0 0 (functions.size(element-margin) * 0.75) 0;
 		text-transform: none;
 	}
 
 	h2 {
 		font-size: 1.25rem;
-		font-weight: _font(weight-heading);
-		margin: 0 0 _size(element-margin) 0;
+		font-weight: functions.font(weight-heading);
+		margin: 0 0 functions.size(element-margin) 0;
 	}
 
 	h3 {
@@ -112,7 +116,7 @@
 		font-size: 0.625rem;
 	}
 
-	@include breakpoint('<=small') {
+	@include breakpoints.breakpoint('<=small') {
 		h1 {
 			font-size: 4.5rem;
 			line-height: 1.1;
@@ -136,7 +140,7 @@
 		}
 	}
 
-	@include breakpoint('<=xxsmall') {
+	@include breakpoints.breakpoint('<=xxsmall') {
 		h1 {
 			font-size: 3.75rem;
 		}
@@ -171,16 +175,16 @@
 	}
 
 	blockquote {
-		border-left: solid 0.5rem _palette(border);
+		border-left: solid 0.5rem functions.palette(border);
 		font-style: italic;
-		margin: 0 0 _size(element-margin) 0;
-		padding: (_size(element-margin) * 0.5) 0 (_size(element-margin) * 0.5) _size(element-margin);
+		margin: 0 0 functions.size(element-margin) 0;
+		padding: (functions.size(element-margin) * 0.5) 0 (functions.size(element-margin) * 0.5) functions.size(element-margin);
 	}
 
 	code {
-		background: _palette(border-bg);
-		border-radius: _size(border-radius);
-		font-family: _font(family-fixed);
+		background: functions.palette(border-bg);
+		border-radius: functions.size(border-radius);
+		font-family: functions.font(family-fixed);
 		font-size: 0.9rem;
 		margin: 0 0.25rem;
 		padding: 0.25rem 0.65rem;
@@ -188,9 +192,9 @@
 
 	pre {
 		-webkit-overflow-scrolling: touch;
-		font-family: _font(family-fixed);
+		font-family: functions.font(family-fixed);
 		font-size: 0.9rem;
-		margin: 0 0 _size(element-margin) 0;
+		margin: 0 0 functions.size(element-margin) 0;
 		width: 100%;
 
 		code {
@@ -203,16 +207,16 @@
 
 	hr {
 		border: 0;
-		border-bottom: solid 2px _palette(border);
-		margin: (_size(element-margin) * 1.5) 0;
+		border-bottom: solid 2px functions.palette(border);
+		margin: (functions.size(element-margin) * 1.5) 0;
 
 		&.major {
-			margin: (_size(element-margin) * 2.5) 0;
+			margin: (functions.size(element-margin) * 2.5) 0;
 		}
 
-		@include breakpoint('<=small') {
+		@include breakpoints.breakpoint('<=small') {
 			&.major {
-				margin: (_size(element-margin) * 1.5) 0;
+				margin: (functions.size(element-margin) * 1.5) 0;
 			}
 		}
 	}

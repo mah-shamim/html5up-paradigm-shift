@@ -1,3 +1,9 @@
+@use "sass:color";
+@use "../libs/breakpoints";
+@use "../libs/functions";
+@use "../libs/mixins";
+@use "../libs/vendor";
+
 ///
 /// Paradigm Shift by HTML5 UP
 /// html5up.net | @ajlkn
@@ -6,18 +12,18 @@
 
 /* Gallery */
 
-	@include keyframes('gallery-modal-spinner') {
+	@include vendor.keyframes('gallery-modal-spinner') {
 		0% {
-			@include vendor('transform', 'rotate(0deg)');
+			@include vendor.vendor('transform', 'rotate(0deg)');
 		}
 
 		100% {
-			@include vendor('transform', 'rotate(360deg)');
+			@include vendor.vendor('transform', 'rotate(360deg)');
 		}
 	}
 
 	.gallery {
-		$gutter: _size(gallery-gutter);
+		$gutter: functions.size(gallery-gutter);
 
 		display: flex;
 		flex-wrap: wrap;
@@ -57,18 +63,18 @@
 		}
 
 		.modal {
-			@include vendor('display', 'flex');
-			@include vendor('align-items', 'center');
-			@include vendor('justify-content', 'center');
-			@include vendor('pointer-events', 'none');
-			@include vendor('user-select', 'none');
-			@include vendor('transition', (
-				'opacity #{_duration(gallery-lightbox-fadein)} ease',
-				'visibility #{_duration(gallery-lightbox-fadein)}',
-				'z-index #{_duration(gallery-lightbox-fadein)}'
+			@include vendor.vendor('display', 'flex');
+			@include vendor.vendor('align-items', 'center');
+			@include vendor.vendor('justify-content', 'center');
+			@include vendor.vendor('pointer-events', 'none');
+			@include vendor.vendor('user-select', 'none');
+			@include vendor.vendor('transition', (
+				'opacity #{functions.duration(gallery-lightbox-fadein)} ease',
+				'visibility #{functions.duration(gallery-lightbox-fadein)}',
+				'z-index #{functions.duration(gallery-lightbox-fadein)}'
 			));
 			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-			background-color: transparentize(_palette(bg), 1 - _misc(gallery-lightbox-opacity));
+			background-color: color.adjust(functions.palette(bg), $alpha: -(1 - functions.misc(gallery-lightbox-opacity)));
 			height: 100%;
 			left: 0;
 			opacity: 0;
@@ -80,10 +86,10 @@
 			z-index: 0;
 
 			&:before {
-				@include vendor('animation', 'gallery-modal-spinner 1s infinite linear');
-				@include vendor('transition', 'opacity #{_duration(gallery-lightbox-fadein) * 0.5} ease');
-				@include vendor('transition-delay', '#{_duration(gallery-lightbox-fadein)}');
-				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96px" height="96px" viewBox="0 0 96 96" zoomAndPan="disable"><style>circle {fill: transparent; stroke: #{_palette(fg-bold)}; stroke-width: 2px; }</style><defs><clipPath id="corner"><polygon points="0,0 48,0 48,48 96,48 96,96 0,96" /></clipPath></defs><g clip-path="url(#corner)"><circle cx="48" cy="48" r="32"/></g></svg>');
+				@include vendor.vendor('animation', 'gallery-modal-spinner 1s infinite linear');
+				@include vendor.vendor('transition', 'opacity #{functions.duration(gallery-lightbox-fadein) * 0.5} ease');
+				@include vendor.vendor('transition-delay', '#{functions.duration(gallery-lightbox-fadein)}');
+				background-image: mixins.svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96px" height="96px" viewBox="0 0 96 96" zoomAndPan="disable"><style>circle {fill: transparent; stroke: #{functions.palette(fg-bold)}; stroke-width: 2px; }</style><defs><clipPath id="corner"><polygon points="0,0 48,0 48,48 96,48 96,96 0,96" /></clipPath></defs><g clip-path="url(#corner)"><circle cx="48" cy="48" r="32"/></g></svg>');
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: 4rem;
@@ -99,7 +105,7 @@
 			}
 
 			&:after {
-				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 64 64" zoomAndPan="disable"><style>line {stroke: #{_palette(fg-bold)};stroke-width: 2px;}</style><line x1="20" y1="20" x2="44" y2="44" /><line x1="20" y1="44" x2="44" y2="20" /></svg>');
+				background-image: mixins.svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 64 64" zoomAndPan="disable"><style>line {stroke: #{functions.palette(fg-bold)};stroke-width: 2px;}</style><line x1="20" y1="20" x2="44" y2="44" /><line x1="20" y1="44" x2="44" y2="20" /></svg>');
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: 3rem;
@@ -114,10 +120,10 @@
 			}
 
 			.inner {
-				@include vendor('transform', 'translateY(0.75rem)');
-				@include vendor('transition', (
-					'opacity #{_duration(gallery-lightbox-fadein) * 0.5} ease',
-					'transform #{_duration(gallery-lightbox-fadein) * 0.5} ease'
+				@include vendor.vendor('transform', 'translateY(0.75rem)');
+				@include vendor.vendor('transition', (
+					'opacity #{functions.duration(gallery-lightbox-fadein) * 0.5} ease',
+					'transform #{functions.duration(gallery-lightbox-fadein) * 0.5} ease'
 				));
 				opacity: 0;
 
@@ -130,10 +136,10 @@
 			}
 
 			&.visible {
-				@include vendor('pointer-events', 'auto');
+				@include vendor.vendor('pointer-events', 'auto');
 				opacity: 1;
 				visibility: visible;
-				z-index: _misc(z-index-base) + 1000;
+				z-index: functions.misc(z-index-base) + 1000;
 
 				&:before {
 					opacity: 1;
@@ -142,22 +148,22 @@
 
 			&.loaded {
 				.inner {
-					@include vendor('transform', 'translateY(0)');
-					@include vendor('transition', (
-						'opacity #{_duration(gallery-lightbox-fadein)} ease',
-						'transform #{_duration(gallery-lightbox-fadein)} ease'
+					@include vendor.vendor('transform', 'translateY(0)');
+					@include vendor.vendor('transition', (
+						'opacity #{functions.duration(gallery-lightbox-fadein)} ease',
+						'transform #{functions.duration(gallery-lightbox-fadein)} ease'
 					));
 					opacity: 1;
 				}
 
 				&:before {
-					@include vendor('transition-delay', '0s');
+					@include vendor.vendor('transition-delay', '0s');
 					opacity: 0;
 				}
 			}
 		}
 
-		@include breakpoint('<=medium') {
+		@include breakpoints.breakpoint('<=medium') {
 			a {
 				img {
 					height: 20rem;
@@ -185,8 +191,8 @@
 			}
 		}
 
-		@include breakpoint('<=small') {
-			$gutter: (_size(gallery-gutter) * 0.5);
+		@include breakpoints.breakpoint('<=small') {
+			$gutter: (functions.size(gallery-gutter) * 0.5);
 
 			margin: ($gutter * -1) 0 0 ($gutter * -1);
 			width: calc(100% + #{$gutter});
@@ -213,7 +219,7 @@
 			}
 		}
 
-		@include breakpoint('<=xsmall') {
+		@include breakpoints.breakpoint('<=xsmall') {
 			a {
 				img {
 					height: 12rem;

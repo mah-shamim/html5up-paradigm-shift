@@ -1,0 +1,22 @@
+@use "../components/box";
+@use "../components/button";
+@use "../components/form";
+@use "../components/icon";
+@use "../components/list" as components-list;
+@use "../components/section";
+@use "../components/spotlight";
+@use "../components/table";
+@use "color-elem";
+
+
+@mixin color($p) {
+	@include color-elem.color-typography($p);
+	@include box.color-box($p);
+	@include button.color-button($p);
+	@include color-elem.color-form($p);
+	@include icon.color-icon($p);
+	@include components-list.color-list($p);
+	@include section.color-section($p);
+	@include table.color-table($p);
+	@include spotlight.color-spotlight($p);
+}
